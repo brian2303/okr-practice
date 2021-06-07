@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OkrList = () => {
+const OKRList = () => {
   return (
     <div>
       OKR LIST
@@ -8,4 +8,4 @@ const OkrList = () => {
   );
 }
 
-export default OkrList;
+export default OKRList;

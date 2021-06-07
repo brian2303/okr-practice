@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +12,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './ListItems';
+import { MainListItems, SecondaryListItems } from './ListItems';
+import Logo from '../assets/img/sofka.png'
 
 const drawerWidth = 240;
 
@@ -26,8 +27,7 @@ const useStyles = makeStyles((theme) => ({
   toolbarIcon: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
+    justifyContent: 'center',
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: 'orange',
+    background: '#f09505',
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontFamily: 'Lato, sans-serif'
   },
   drawerPaper: {
     position: 'relative',
@@ -98,12 +99,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = ({ children }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
   return (
     <>
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+        <AppBar position="absolute" className={clsx(classes.appBar, classes.appBarShift)}>
           <Toolbar className={classes.toolbar}>
             <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
               SofkaOKR
@@ -122,11 +122,16 @@ const Layout = ({ children }) => {
           }}
         >
           <div className={classes.toolbarIcon}>
+            <img width='170px' src={Logo} alt="logo-sofka" />
           </div>
           <Divider />
-          <List style={{ margin: '5px auto' }}>{mainListItems}</List>
+          <List style={{ margin: '5px auto' }}>
+            <MainListItems />
+          </List>
           <Divider />
-          <List>{secondaryListItems}</List>
+          <List>
+            <SecondaryListItems />
+          </List>
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
