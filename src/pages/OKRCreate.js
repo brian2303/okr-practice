@@ -1,10 +1,11 @@
 import React from 'react';
+import OKRForm from '../components/OKRForm';
 
 const OKRCreate = () => {
   return (
-    <div>
-      OKR CREATE
-    </div>
+    <>
+      <OKRForm />
+    </>
   );
 }
 
